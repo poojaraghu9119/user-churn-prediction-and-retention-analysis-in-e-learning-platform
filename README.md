@@ -41,9 +41,9 @@ Categorical variables were encoded, missing values were handled, and outliers we
 
 The following models were trained and evaluated:
 
-Logistic Regression (baseline, interpretable)
-Random Forest
-XGBoost
+Logistic Regression (baseline, interpretable),
+Random Forest,
+XGBoost,
 LightGBM
 
 Hyperparameter tuning and probability threshold optimization were performed to balance recall and precision for the target class.
@@ -78,6 +78,7 @@ Model interpretability was assessed during development using grouped permutation
 The analysis confirmed that **student engagement features**—such as number of events, active days, and chapters accessed—were the strongest drivers of course completion. This aligned well with domain intuition and validated the model’s behavior.
 Demographic features have relatively low influence.
 High engagement consistently increases the likelihood of completion.
+![Confusion Matrix](reports/figures/shap_summary_xgb.png)
 
 SHAP visualizations were used exclusively for **model validation and debugging** and are not exposed in the deployed application. This design choice ensures that end users receive clear, intuitive explanations without unnecessary technical complexity.
 
@@ -89,8 +90,12 @@ Interventions should focus on increasing active participation and consistent int
 
 ## Deployment
 
-The trained XGBoost model was deployed using **Streamlit** to provide an interactive
-web interface for real-time course completion prediction.
+The model is deployed as an interactive web application using **Streamlit Cloud**.
+
+🔗 **Live Application:**  
+https://student-course-completion-prediction.streamlit.app/
+
+The application allows users to input student engagement, demographic, and course-related information and returns a prediction on whether the student is likely to complete the course.
 
 ### Application Features
 - User-friendly form for entering student and engagement details
@@ -127,10 +132,10 @@ Real-time prediction and intervention strategies
 
 ## Technologies Used
 
-Python
-pandas, NumPy
-scikit-learn
-XGBoost, LightGBM
+Python,
+pandas, NumPy,
+scikit-learn,
+XGBoost, LightGBM,
 SHAP
 Matplotlib, Seaborn
 Streamlit
