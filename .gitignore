@@ -1,0 +1,27 @@
+# Conda / environments
+.env/
+.envs/
+conda/
+*.conda
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDEs
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Data (do not push raw data)
+data/raw/*
+data/processed/*
+
+# Logs
+*.log
