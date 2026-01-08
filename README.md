@@ -16,37 +16,9 @@ Engineered behavioral features derived from activity patterns
 Categorical variables were encoded, missing values were handled, and outliers were treated using custom preprocessing pipelines.
 
 ## Project Structure
+## Project Structure
 
-student-course-completion-prediction/
-│
-├── app.py # Streamlit application
-├── requirements.txt
-├── README.md
-├── .gitignore
-│
-├── data/
-│ ├── raw/
-│ └── processed/
-│
-├── notebooks/
-│ ├── 01_eda_student_course_completion.ipynb
-│ └── 02_model_evaluation_and_insights.ipynb
-│
-├── src/
-│ ├── data/
-│ ├── data_validation/
-│ ├── data_splitting/
-│ ├── features/
-│ └── models/
-│
-├── reports/
-│ └── figures/
-│
-└── saved_model/
-├── xgb_final_model.joblib
-├── rf_final_model.joblib
-├── lgbm_final_model.joblib
-└── logistic_regression_model.joblib
+
 
 ## Models Trained
 
