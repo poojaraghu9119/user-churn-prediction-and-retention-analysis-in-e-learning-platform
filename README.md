@@ -17,25 +17,36 @@ Categorical variables were encoded, missing values were handled, and outliers we
 
 ## Project Structure
 
-├── data/
-│   ├── raw/
-│   ├── processed/
-├── notebooks/
-│   ├── 01_eda_student_course_completion.ipynb
-│   ├── 02_model_evaluation_and_insights.ipynb
-├── src/
-│   ├── data/
-│   ├── data_validation/
-│   ├── data_splitting/
-│   ├── features/
-│   ├── models/
-├── reports/
-│   ├── figures/
-├── saved_models/
+student-course-completion-prediction/
+│
+├── app.py # Streamlit application
 ├── requirements.txt
 ├── README.md
-|__ .gitignore
-|__ app.py
+├── .gitignore
+│
+├── data/
+│ ├── raw/
+│ └── processed/
+│
+├── notebooks/
+│ ├── 01_eda_student_course_completion.ipynb
+│ └── 02_model_evaluation_and_insights.ipynb
+│
+├── src/
+│ ├── data/
+│ ├── data_validation/
+│ ├── data_splitting/
+│ ├── features/
+│ └── models/
+│
+├── reports/
+│ └── figures/
+│
+└── saved_model/
+├── xgb_final_model.joblib
+├── rf_final_model.joblib
+├── lgbm_final_model.joblib
+└── logistic_regression_model.joblib
 
 ## Models Trained
 
