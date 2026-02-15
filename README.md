@@ -88,7 +88,21 @@ Student engagement is the strongest predictor of course completion.
 Monitoring early engagement signals can help identify students at risk.
 Interventions should focus on increasing active participation and consistent interaction. Increasing the content quality can also increase student engagement and course completion.
 
-## Deployment
+## Early Intervention Experiment (Simulated A/B Analysis)
+
+To estimate real-world impact of the suggested actions, a simulated intervention experiment was conducted.
+Students with predicted completion probability between 0.2 and 0.5 were identified as moderately at-risk learners. These students were randomly divided into two groups:
+- No-help group
+- Help group (simulated intervention)
+For the help group, engagement metrics were increased (active days +30%, total events +20%) to simulate reminder-based intervention.
+The trained model was re-evaluated to estimate expected completion outcomes.
+
+Results:
+- No-help estimated completion rate: 32.87%
+- Help estimated completion rate: 39.96%
+- Estimated lift: +7.1 percentage points
+
+This suggests that targeted early engagement interventions for moderately at-risk students could meaningfully improve course completion rates.
 
 ## Deployment
 
