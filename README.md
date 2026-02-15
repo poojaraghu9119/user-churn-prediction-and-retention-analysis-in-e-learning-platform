@@ -15,36 +15,57 @@ Demographic and background attributes
 Engineered behavioral features derived from activity patterns
 Categorical variables were encoded, missing values were handled, and outliers were treated using custom preprocessing pipelines.
 
-## Project Structure
+## Exploratory Data Analysis (EDA)
 
-├── data/
-│   ├── raw/
-│   ├── processed/
-├── notebooks/
-│   ├── 01_eda_student_course_completion.ipynb
-│   ├── 02_model_evaluation_and_insights.ipynb
-├── src/
-│   ├── data/
-│   ├── data_validation/
-│   ├── data_splitting/
-│   ├── features/
-│   ├── models/
-├── reports/
-│   ├── figures/
-├── saved_models/
-├── requirements.txt
-├── README.md
-|__ .gitignore
-|__ app.py
+EDA was conducted to understand student behavior patterns and their relationship with course completion. Plots like heatmaps, barplots, boxplots, kdeplot were plotted to understand the correlation between the features, find hidden patterns, check for outliers, and check the data distribution.
 
-## Models Trained
+Key insights:
+- Course completion is highly correlated with **engagement metrics** such as:
+  - Number of events (`nevents`)
+  - Active days (`ndays_act`)
+  - Chapters explored (`nchapters`)
+- Students with low interaction early in the course are significantly more likely to drop out.
+- Demographic features (e.g., gender, level of education, country) showed weaker individual impact compared to behavioral features.
+- The dataset was highly **imbalanced**, with substantially fewer students completing the course, motivating threshold optimization and class-weighting strategies.
 
-The following models were trained and evaluated:
+These insights guided feature engineering, model selection, and evaluation strategy.
+## Data Preprocessing & Feature Engineering
 
-Logistic Regression (baseline, interpretable),
-Random Forest,
-XGBoost,
-LightGBM
+A robust preprocessing pipeline was built using scikit-learn Pipelines to ensure consistency between training and deployment.
+
+Steps included:
+- **Missing value imputation** using domain-appropriate strategies
+- **Categorical encoding**
+  - Mapping encoding for ordinal features
+  - Frequency encoding for high-cardinality categorical variables
+- **Outlier handling** for engagement features
+- **Feature engineering**
+  - New features like activity ratio, exploration rate, course duration, etc were created. 
+- **Feature scaling and transformation** embedded directly in the pipeline
+
+All preprocessing steps are applied identically during inference, ensuring no data leakage.
+
+## Model Development & Selection
+
+Multiple classification models were trained and evaluated:
+
+- Logistic Regression (baseline, interpretable)
+- Random Forest
+- LightGBM
+- XGBoost
+
+Model comparison was based on:
+- Precision, Recall, and F1-score
+- ROC-AUC
+- Business relevance (false positives vs false negatives)
+
+### Why XGBoost?
+
+XGBoost was selected as the final model because it:
+- Achieved the **highest F1-score** among all models
+- Handled non-linear feature interactions effectively
+- Was robust to feature scaling and multicollinearity
+- Provided strong generalization on unseen data
 
 Hyperparameter tuning and probability threshold optimization were performed to balance recall and precision for the target class.
 
@@ -57,12 +78,6 @@ Accuracy alone is not a reliable metric.
 Primary focus was on Recall and F1-score for the completion class.
 
 This ensures that students who are likely to complete—or are at risk of not completing—are identified as effectively as possible.
-
-## Model Performance
-
-Among all models, XGBoost achieved the best overall performance.
-Threshold tuning was applied to control false positives.
-A higher threshold was selected to better identify students at risk of non-completion.
 
 ## Confusion Matrix Analysis
 
@@ -113,7 +128,6 @@ https://student-course-completion-prediction.streamlit.app/
 
 The application allows users to input student engagement, demographic, and course-related information and returns a prediction on whether the student is likely to complete the course.
 
-
 ### Application Features
 - User-friendly form for entering student and engagement details
 - Probability-based prediction with a fixed decision threshold (0.89)
@@ -153,10 +167,10 @@ Real-time prediction and intervention strategies
 
 ## Technologies Used
 
-Python
-pandas, NumPy
-scikit-learn
-XGBoost, LightGBM
+Python,
+pandas, NumPy,
+scikit-learn,
+XGBoost, LightGBM,
 SHAP
 Matplotlib, Seaborn
 Streamlit
