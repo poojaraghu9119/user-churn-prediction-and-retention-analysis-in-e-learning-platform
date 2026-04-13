@@ -17,20 +17,20 @@ model = joblib.load(MODEL_PATH)
 # Streamlit Page Config
 # -----------------------------
 st.set_page_config(
-    page_title="Student Course Completion Prediction",
+    page_title="User Churn Prediction & Retention Dashboard",
     layout="centered"
 )
 
-st.title("Student Course Completion Prediction")
+st.title("User Churn Prediction & Retention Dashboard")
 st.write(
     """
-    This application predicts whether a student is likely to **complete**
+    This application predicts whether a user is likely to **complete**
     an online course based on engagement, demographics, and course behavior.
     """
 )
 
 st.markdown("---")
-st.subheader("Enter Student Information")
+st.subheader("Enter User Information")
 
 # -----------------------------
 # INPUTS (RAW FEATURES ONLY)
@@ -188,13 +188,13 @@ if st.button("Predict Completion"):
 
     if prediction == "COMPLETE":
         st.success(
-            "This student shows strong engagement with the course. "
+            "This user shows strong engagement with the course. "
             "High activity levels, multiple active days, and consistent interaction "
             "with course content significantly increase the likelihood of completion."
         )
     else:
         st.warning(
-            "This student shows limited engagement with the course. "
+            "This user shows limited engagement with the course. "
             "Lower activity levels and fewer active days reduce the likelihood "
             "of course completion."
         )
