@@ -1,4 +1,4 @@
-# User Churn Prediction And Retention Analysis
+# User Churn Prediction And Retention Analysis (E-Learning Platform)
 
 ## Problem Statement
 Online courses often suffer from low completion rates. The objective of this project is to predict whether a user will complete a course or churn off based on their engagement patterns, course characteristics, and prior learning behavior.
