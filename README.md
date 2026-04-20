@@ -124,7 +124,7 @@ This suggests that targeted early engagement interventions for moderately at-ris
 The model is deployed as an interactive web application using **Streamlit Cloud**.
 
 🔗 **Live Application:**  
-https://student-course-completion-prediction.streamlit.app/
+(https://user-churn-prediction-from-e-learning-platform.streamlit.app/)
 
 The application allows users to input user engagement, demographic, and course-related information and returns a prediction on whether the user is likely to complete the course.
 
